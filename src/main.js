@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll("[data-tab-button]");
+  const questions = document.querySelectorAll("[data-faq-question]")
   
   
   /* for (let i=0; i<buttons.length; i++) {
@@ -21,7 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  for (let i=0; i < questions.length; i++) {
+    //!questions[i].addEventListener ("click", openAndCloseAnswer(questions[i])) 
+    questions[i].addEventListener ("click", () => {openAndCloseAnswer(questions[i])}) 
+    //*questions[i].addEventListener ("click", openAndCloseAnswer)  - como o prof fez
+  }
+
 })
+
+function openAndCloseAnswer(e) {
+    const addClass = 'faq__question__item--is-open'
+    const parentElement = e.parentNode
+    //*const element = e.target.parentNode - como o prof fez
+    parentElement.classList.toggle(addClass);
+}
 
 function hideTabs() {
     const tabsContainer = document.querySelectorAll('[data-tab-id]')
@@ -38,5 +52,7 @@ function removeActiveButton() {
     })
 
 }
+
+
 
 
